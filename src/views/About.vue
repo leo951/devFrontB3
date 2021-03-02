@@ -9,13 +9,13 @@ import TitlePage from '../components/TitlePage'
 export default {
   name: "About",
   components: {
-    TitlePage
+    TitlePage,
   },
   data: function () {
     return{
-      myTitle:"Page About"
+      myTitle:"Page About",
     }
-  }
+  },
   
 }
 </script>
