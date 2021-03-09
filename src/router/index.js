@@ -4,6 +4,8 @@ import Home from '../views/Home.vue'
 import Contact from '../views/Contact.vue'
 import Shop from '../views/Shop.vue'
 import Account from '../views/Account.vue'
+import Product from '../views/Product.vue'
+
 
 Vue.use(VueRouter)
 
@@ -35,6 +37,11 @@ const routes = [
     path: '/account',
     name: 'Account',
     component: Account
+  },
+  {
+    path: '/product/:id',
+    name: 'Product',
+    component: Product
   },
 ]
 

@@ -1,8 +1,10 @@
 <template>
     <div class="product__card">
-        <h2>
-            {{productsObject.title}}
-        </h2>
+        <router-link :to="{name: 'Product', params:{id:productsObject._id}}">
+            <h2>
+                {{productsObject.title}}
+            </h2>
+        </router-link>
         <p>
             {{productsObject.price}}
         </p>
