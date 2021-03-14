@@ -1,6 +1,6 @@
 <template>
     <footer class="footer__main">
-        <p>Copyright 2021</p>
+        <p>Copyright © 2021</p>
     </footer>
 </template>
 

@@ -8,6 +8,7 @@
 <script>
 import TitlePage from '../components/product/ProductsItem'
 import ProductsGrid from '../components/product/ProductsGrid'
+import ApiProducts from '../mixins/ApiProducts';
 
 //http://localhost:3000/api/v1/products
 
@@ -23,20 +24,14 @@ import ProductsGrid from '../components/product/ProductsGrid'
                 productsFromApi: []
             }
         },
-        methods: {
-            getProducts:function(){
-                fetch("http://localhost:3000/api/v1/products")
-                .then(res => res.json())
-                //Data corresponds à nos produits dans notre cas
-                .then((data) => {
-                    this.productsFromApi = data
-                })
-                .catch(err => console.log(err))
-                }
+        mixins:[ApiProducts],
+        created() {
+            this.getProducts()
+            .then((data) => {
+                this.productsFromApi = data;
+            })
+            .catch((err) => console.log(err));
         },
-        created(){
-            this.getProducts();
-        }
     }
 </script>
 

@@ -1,6 +1,7 @@
 <template>
     <div class="products__grid">
-        <ProductsItem v-for="product in productsArray" 
+        <ProductsItem 
+        v-for="product in productsArray" 
         :key="product._id"
         :productsObject="product"
         />
@@ -13,10 +14,6 @@ import ProductsItem from './ProductsItem'
         name: "ProductsGrid",
         components: {
             ProductsItem
-        },
-        data: function(){
-            return{
-            }
         },
         props: {
             productsArray: Array

@@ -17,10 +17,6 @@
         components: {
 
         },
-        data: function(){
-            return{
-            }
-        },
         props: {
             productsObject: Object
         },

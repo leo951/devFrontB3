@@ -10,6 +10,8 @@
             <router-link to="/shop">Shop</router-link> |
             <router-link to="/product">Product</router-link> |
             <router-link to="/account">Mon compte</router-link> |
+            <router-link to="/login">Login</router-link> |
+
         </div>
     </header>
 </template>
