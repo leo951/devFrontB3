@@ -1,18 +1,17 @@
 <template>
-    <div class="form__login">
-        <!-- prevent permet d'empecher le rechargement de la page -->
+    <div class="login__form">
         <form @submit.prevent="login">
-                <div class="form__group">
-                    <label htmlFor="email"> Email :</label>
-                    <input type="email" name="email" placeholder="Email" v-model="email">
-                </div>
-                <div class="form__group">
-                    <label htmlFor="password"> Password :</label>
-                    <input type="password" name="password" placeholder="Password" v-model="password">
-                </div>
-                <div>
-                    <input type="submit" value="Enter">    
-                </div>
+            <div class="form__group">
+                <label htmlFor="email">Mail</label>
+                <input type="email" name="email" v-model="email"/>
+            </div>
+            <div class="form__group">
+                <label htmlFor="password">Password</label>
+                <input type="password" name="password" v-model="password"/>
+            </div>
+            <div class="form__group">
+               <input type="submit" value="se connecter">
+            </div>
         </form>
         <p v-if="messageError">
             {{messageError}}
@@ -22,20 +21,21 @@
 
 <script>
     export default {
-        name:"Login",
         data: function() {
             return {
-                email: "",
-                password: "",
-                messageError: ""
+                email:"",
+                password:"",
+                messageError:""
             }
         },
         methods: {
-            login: function() {
+            login: function(e) {
+
                 const body = {
-                    email: this.email,
-                    password: this.password
+                        email : this.email,
+                        password: this.password
                 }
+                
                 const requestOptions = {
                    method: "POST",
                    headers: {
@@ -43,11 +43,13 @@
                    },
                    body : JSON.stringify(body)
                 }
-                fetch(`http://localhost:3000/api/v1/users/login`,requestOptions)
-                .then(res => res.json())
+                fetch("http://localhost:3000/api/v1/users/login",requestOptions)
+                .then (res => res.json())
                 .then((data) => {
+                    console.log(data)
                         if(!data.auth) {
                             this.messageError = data.message;
+                            console.log('je ne rentre pas dans la validation')
                         }
                         else {
                             let token = data.token;
@@ -56,9 +58,11 @@
                         }
                     }
                 )
-                .catch(err => console.log(err))
+                .catch(
+                    err => console.log(err)
+                )
             }
-        },
+        }
     }
 </script>
 

@@ -28,6 +28,7 @@ import ApiProducts from '../mixins/ApiProducts';
         created() {
             this.getProducts()
             .then((data) => {
+                console.log(data)
                 this.productsFromApi = data;
             })
             .catch((err) => console.log(err));

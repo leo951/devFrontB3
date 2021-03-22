@@ -6,7 +6,8 @@ import Shop from '../views/Shop.vue'
 import Account from '../views/Account.vue'
 import Product from '../views/Product.vue'
 import Login from '../views/Login.vue'
-
+import authGuard from '../middleware/auth'
+import Cart from '../views/Cart.vue'
 
 
 Vue.use(VueRouter)
@@ -16,6 +17,11 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/cart',
+    name: 'Cart',
+    component: Cart
   },
   {
     path: '/contact',
@@ -38,7 +44,18 @@ const routes = [
   {
     path: '/account',
     name: 'Account',
-    component: Account
+    component: Account,
+    //via middleware
+    beforeEnter(to, from, next) {
+      if (!localStorage.getItem('token')) {
+         next({
+          name:"Login"
+        })
+      }
+      else {
+        next();
+      }
+    }
   },
   {
     path: '/product/:id',
