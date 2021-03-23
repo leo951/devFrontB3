@@ -1,6 +1,6 @@
 <template>
     <div class="product__card" v-if="productsObject">
-        <router-link :to="{name: 'Product', params:{id:productsObject._id}}">
+        <router-link :to="{name: 'Product', params:{id:this.productsObject._id}}">
             <h2>
                 {{productsObject.title}}
             </h2>

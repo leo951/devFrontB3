@@ -26,6 +26,7 @@ import TitlePage from '../components/TitlePage'
             .then(res=>res.json())
             .then((data) => {
                 this.productItem = data;
+                console.log(`Je suis productItem ${this.productItem.title}`)
             })
             .catch(err=> console.log(err))
         }

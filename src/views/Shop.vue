@@ -1,6 +1,16 @@
 <template>
     <div class="page__shop">
         <TitlePage title="Mon Eshop"/>
+        <div class="search__form">
+            <input type="text" v-model="searchValue" @keyup="search">
+        </div>
+        <div class="input__content">
+            Résultat de votre recherche = {{searchValue}} <br>
+            Résultat de votre recherche precedente = {{oldSearchValue}}
+        </div>
+        <div class="search__content">
+            <ProductsGrid :productsArray="filteredShop"/>
+        </div>
         <ProductsGrid :productsArray="productsFromApi"/>
     </div>
 </template>
@@ -21,7 +31,25 @@ import ApiProducts from '../mixins/ApiProducts';
         },
         data: function(){
             return{
-                productsFromApi: []
+                productsFromApi: [],
+                searchValue: "",
+                oldSearchValue: ""
+            }
+        },
+        watch:{
+            searchValue: function (newValue, oldValue) {
+                this.oldSearchValue = oldValue
+            }
+        },
+        computed:{
+            filteredShop: function () {
+                let filter = new RegExp(this.searchValue, "i");
+                return this.productsFromApi.filter(item=>item.title.match(filter))
+            }
+        },
+        methods: {
+            search: function(){
+                console.log(this.searchValue)
             }
         },
         mixins:[ApiProducts],
