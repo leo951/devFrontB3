@@ -28,7 +28,7 @@
         },
         methods:{
             addItemToCart: function(product) {
-                console.log("Je suis produit : "+product)
+                console.log(`Je suis product.title dans productItem = ${product.title}`)
                 this.addToCart(product)
             }
         }
