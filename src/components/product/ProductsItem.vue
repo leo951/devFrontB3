@@ -1,16 +1,18 @@
 <template>
-    <div class="product__card" v-if="productsObject">
-        <router-link :to="{name: 'Product', params:{id:this.productsObject._id}}">
-            <h2>
-                {{productsObject.title}}
-            </h2>
-        </router-link>
-        <p>            
-            {{productsObject.price}}
-        </p>
-        <p>
-            <button @click="addItemToCart(productsObject)">Ajouter au panier</button>
-        </p>
+    <div>
+        <div class="product__card" v-if="productsObject">
+            <router-link :to="{name: 'Product', params:{id:this.productsObject._id}}">
+                <h2>
+                    {{productsObject.title}}
+                </h2>
+            </router-link>
+            <p>            
+                {{productsObject.price}}
+            </p>
+            <p>
+                <button @click="addItemToCart(productsObject)">Ajouter au panier</button>
+            </p>
+        </div>
     </div>
 </template>
 
@@ -21,14 +23,14 @@
         name:"ProductsItem",
         mixins:[Cart],
         props:{
-            productsObject: Object
+            productsObject: Object,
         },
         created() {
             // console.log(this.productsObject)
         },
         methods:{
             addItemToCart: function(product) {
-                console.log(`Je suis product.title dans productItem = ${product.title}`)
+                // console.log(`Je suis product.title dans productItem = ${product.title}`)
                 this.addToCart(product)
             }
         }

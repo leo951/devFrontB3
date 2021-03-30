@@ -19,7 +19,7 @@ import CategoryItem from './CategoryItem'
             CategoryArray: Array,
         },
         created(){
-            console.log(`Je suis CategoryArray dans CategoryGrid ${this.CategoryArray}`)
+            // console.log(`Je suis CategoryArray dans CategoryGrid ${this.CategoryArray}`)
         }
     }
 </script>
