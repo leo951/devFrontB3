@@ -9,6 +9,8 @@ import Category from '../views/Category.vue'
 import Login from '../views/Login.vue'
 import authGuard from '../middleware/auth'
 import Cart from '../views/Cart.vue'
+import Favorite from '../views/Favorite.vue'
+
 
 
 Vue.use(VueRouter)
@@ -23,6 +25,11 @@ const routes = [
     path: '/cart',
     name: 'Cart',
     component: Cart
+  },
+  {
+    path: '/favorite',
+    name: 'Favorite',
+    component: Favorite
   },
   {
     path: '/contact',

@@ -12,16 +12,20 @@
             <p>
                 <button @click="addItemToCart(productsObject)">Ajouter au panier</button>
             </p>
+            <p>
+                <button @click="addItemToFavorite(productsObject)">Ajouter au favori</button>
+            </p>
         </div>
     </div>
 </template>
 
 <script>
     import Cart from "../../mixins/Cart";
+    import Favorite from "../../mixins/Favorite";
 
     export default {
         name:"ProductsItem",
-        mixins:[Cart],
+        mixins:[Cart, Favorite],
         props:{
             productsObject: Object,
         },
@@ -32,6 +36,9 @@
             addItemToCart: function(product) {
                 // console.log(`Je suis product.title dans productItem = ${product.title}`)
                 this.addToCart(product)
+            },
+            addItemToFavorite: function(product) {
+                this.addToFavorite(product)
             }
         }
     }
