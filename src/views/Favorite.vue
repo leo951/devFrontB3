@@ -16,11 +16,11 @@
                     <td>
                         <button @click="removeFavori(item)">Supprimer le produit</button>
                     </td>
+
+                </tr>
                     <div>
                         <button @click="clearFavori()">Supprimer les favoris</button>
                     </div>
-
-                </tr>
             </tbody>
         </table>
     </div>
