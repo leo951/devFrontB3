@@ -24,11 +24,11 @@ const routes = [
     path: '/cart',
     name: 'Cart',
     component: Cart
-  },
+  },  
   {
-    path: '/contact',
-    name: 'Contact',
-    component: Contact
+    path: '/favorite',
+    name: 'Favorite',
+    component: Favorite
   },
   {
     path: '/shop',

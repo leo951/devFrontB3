@@ -22,6 +22,7 @@ export default{
             else{
                 favori.push(productObject);
                 console.log("Le produit à été ajouté")
+                console.log(productObject)
             }
 
             localStorage.setItem('favorite',JSON.stringify(favori));

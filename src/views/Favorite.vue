@@ -16,6 +16,9 @@
                     <td>
                         <button @click="removeFavori(item)">Supprimer le produit</button>
                     </td>
+                    <td>
+                        <button @click="addItemToCart(item)">Ajouter au panier</button>
+                    </td>
 
                 </tr>
                     <div>
@@ -29,8 +32,9 @@
 
 <script>
     import Favorite from '../mixins/Favorite';
+    import Cart from "../mixins/Cart";
     export default {
-        mixins:[Favorite],
+        mixins:[Favorite, Cart],
         data: function() {
             return {
                 favoriArray:[],
@@ -38,7 +42,7 @@
         },
         created() {
             this.favoriArray = this.getFavori();
-            console.log(this.favoriArray)
+            console.log("dsvkldsnclqcnw"+this.favoriArray)
         },
         computed:{
 
@@ -53,6 +57,10 @@
                 this.removeItemFavori(product);
                 this.favoriArray = this.getFavori();
             },
+            addItemToCart: function(product) {
+                // console.log(`Je suis product.title dans productItem = ${product.title}`)
+                this.addToCart(product)
+            }
         }
     }
 </script>
