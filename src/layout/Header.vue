@@ -11,6 +11,7 @@
             <router-link to="/shop">Nos produits</router-link> |
             <!-- <router-link to="/product">Product</router-link> | -->
             <router-link to="/account">Mon compte</router-link> |
+            <router-link to="/signIn">Inscription</router-link> |
             <router-link to="/login">Login</router-link> |
 
         </div>

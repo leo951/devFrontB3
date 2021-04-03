@@ -1,5 +1,7 @@
 <template>
     <div class="shopping__cart">
+
+        // Faire un v-if user pour dependre de l'utilisateur voir Account.vue
         <table class="shop__table">
             <thead>
                 <tr>

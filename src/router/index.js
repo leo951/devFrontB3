@@ -9,6 +9,7 @@ import Login from '../views/Login.vue'
 import authGuard from '../middleware/auth'
 import Cart from '../views/Cart.vue'
 import Favorite from '../views/Favorite.vue'
+import SignIn from '../views/SignIn.vue'
 
 
 
@@ -60,6 +61,11 @@ const routes = [
     path: '/category/:id',
     name: 'Category',
     component: Category
+  },
+  {
+    path: '/signIn/',
+    name: 'SignIn',
+    component: SignIn
   },
   {
     path: '/login/',

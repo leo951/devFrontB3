@@ -8,8 +8,6 @@
             <ProductsItem 
             v-for="product in products" :key="product._id" :productsObject="product"
         />
-
-            
         </div>
     </div>
 </template>
@@ -33,7 +31,7 @@ export default {
     },
     mixins:[ApiProducts],
     created(){
-        // console.log(this.$route.params.id)
+        console.log(this.$route.params.id)
         fetch(`http://localhost:3000/api/v1/category/${this.$route.params.id}`)
         .then(res=>res.json())
         .then((data) => {
