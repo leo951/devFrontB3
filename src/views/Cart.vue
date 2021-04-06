@@ -36,7 +36,8 @@
             Prix total = {{calcTotal}}
         </div>
         <button @click="clearShopCart">Supprimer le panier</button>
-        <button @click="checkout">Payer</button>
+        <!-- <button @click="checkout">Payer</button> -->
+        <button @click="getOrder(cartArray)">Payer</button>
     </div>
 </template>
 
@@ -48,17 +49,38 @@
     //prive : sk_test_51IYBNPL7gHzaRznXMk7Z6zNaqsTKHZEgQ0GvUg083PZC8BwhhUWmcqyE0O7Zh0iczCzreNG2Fe0IHguQ7TrLiNTd00KcuPqzAQ
     const stripePromise = loadStripe('pk_test_51IYBNPL7gHzaRznXa6BoIdn8J9T2NPRqdmktp8Fhw1DCgtPN2um1gFSwrtUAKIhRjiJFDMhbSynnuDuKJbTZh8af00RnOXq6kz');
     import Cart from '../mixins/Cart';
+    import VueJwtDecode from "vue-jwt-decode";
+
+import FooterVue from '../layout/Footer.vue';
     export default {
         mixins:[Cart],
         data: function() {
             return {
                 cartArray:[],
+                i: Number,
+                idProducts: [],
+                idUser : Array
+                // parseObj:[]
                 // calcQty:0
             }
         },
         created() {
             this.cartArray = this.getCart();
             // console.log(this.cartArray)
+            var parseObj = JSON.parse(JSON.stringify(this.cartArray))
+            for (this.i = 0; this.i < parseObj.length; this.i++) {
+                this.idProducts.push(parseObj[this.i].id)
+                // console.log(`Je suis parseObj : ${parseObj[this.i].id}`)
+                console.log(`Je suis Id : ${this.id}`)
+
+            }
+
+            const token = localStorage.getItem('token');
+            if(token) {
+                const decodedToken = VueJwtDecode.decode(token);
+                console.log("Je suis l'id decodé = "+decodedToken.id);
+                this.idUser = decodedToken.id
+            }
             // this.calcQty = this.getCartCount(this.cartArray)
         },
         computed:{
@@ -70,24 +92,51 @@
             }
         },
         methods: {
-            checkout: async function () {
-                const stripe =  await stripePromise;
-                const response = await fetch('http://localhost:3000/api/v1/create-checkout-session', { 
-                    method: 'POST' ,
-                    headers : {
-                        "Content-Type":"application/json"
-                    },
-                    body:JSON.stringify({ 
-                        amount:30000
-                    })
-                    });
-                const session = await response.json();
-                const result = await stripe.redirectToCheckout({
-                    sessionId:session.id
-                });
-                if (result.error) {
-                    console.log(result.error)
+            // checkout: async function () {
+            //     console.log("Je suis order : "+order)
+            //     const stripe =  await stripePromise;
+            //     const response = await fetch('http://localhost:3000/api/v1/create-checkout-session', { 
+            //         method: 'POST' ,
+            //         headers : {
+            //             "Content-Type":"application/json"
+            //         },
+            //         body:JSON.stringify({ 
+            //             amount:30000
+            //         })
+            //         });
+            //     const session = await response.json();
+            //     const result = await stripe.redirectToCheckout({
+            //         sessionId:session.id
+            //     });
+            //     if (result.error) {
+            //         console.log(result.error)
+            //     }
+            // },
+            getOrder: async function(){
+                const mySelf = this
+                return fetch("http://localhost:3000/api/v1/orders", {
+                method: "POST",
+                headers: {"Content-Type":"Application/json"},
+                body: JSON.stringify( {
+                    total:  399,
+                    user: mySelf.idUser,
+                    products: 
+                        mySelf.idProducts,
+                    status: "En cours",
+                })
+            })
+            .then (res => res.json())
+            .then((data) => {
+                if(data.error) {
+                    console.log(data.error);
+                    console.log(`Je suis l'erreur : ${data}`)
+                    this.messageError = data.error;
+                } else {
+                    // this.$router.push('/orders');
                 }
+            })
+            .catch(err => console.log(err));
+                
             },
             removeProductCart: function (product) {
                 this.removeItemCart(product);

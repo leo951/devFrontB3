@@ -29,7 +29,7 @@ export default{
             localStorage.setItem('cart',JSON.stringify(cart));
         },
         getCart(){
-            return JSON.parse(localStorage.getItem('cart'))
+            return JSON.parse(localStorage.getItem('cart'));
         },
         removeItemCart(product){
             let cart = JSON.parse(localStorage.getItem('cart'));

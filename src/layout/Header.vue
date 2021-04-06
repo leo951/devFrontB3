@@ -7,6 +7,7 @@
             <router-link to="/">Home</router-link> |
             <router-link to="/cart">Panier</router-link> |
             <router-link to="/favorite">Favoris</router-link> |
+            <router-link to="/orders">Commandes</router-link> |
             <!-- <router-link to="/about">About</router-link> | -->
             <router-link to="/shop">Nos produits</router-link> |
             <!-- <router-link to="/product">Product</router-link> | -->

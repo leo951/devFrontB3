@@ -69,7 +69,6 @@ import TitlePage from "../components/TitlePage";
             TitlePage
         },
         data: function() {
-            
             return {
                 user:{},
                 isLogged:false,

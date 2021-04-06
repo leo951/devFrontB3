@@ -83,7 +83,6 @@ import TitlePage from '../components/TitlePage';
                             city: this.adress.city,
                             postalCode: this.adress.postalCode,
                             country: this.adress.country
-                            
                         } 
                     })
                 })

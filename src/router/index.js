@@ -9,6 +9,7 @@ import Login from '../views/Login.vue'
 import authGuard from '../middleware/auth'
 import Cart from '../views/Cart.vue'
 import Favorite from '../views/Favorite.vue'
+import Orders from '../views/Orders.vue'
 import SignIn from '../views/SignIn.vue'
 
 
@@ -30,6 +31,11 @@ const routes = [
     path: '/favorite',
     name: 'Favorite',
     component: Favorite
+  },
+  {
+    path: '/orders',
+    name: 'Orders',
+    component: Orders
   },
   {
     path: '/shop',
