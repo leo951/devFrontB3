@@ -1,20 +1,18 @@
 <template>
     <div>
         <div class="order__card" v-if="ordersObject">
-            <router-link :to="{name: 'Orders', params:{id:this.ordersObject._id}}">
                 <h2>
-                    Total de la commande : {{ordersArray.total}}
+                    Votre numéro de commande est : {{allData._id}}
                 </h2>
-                <p>Lastname : {{ordersArray.user.lastname}}</p>
-                <p>Firstname : {{ordersArray.user.firstname}}</p>
-                <div 
-                v-for="product in ordersArray.products"
+                <h3>Votre commande à été réalisé le : {{allData.date}}</h3>
+                <h4>Votre commande est : {{allData.status}}</h4>
+                <h4>Votre commande comporte : {{allData.products[0].title}}</h4>
+                <!-- <div 
+                v-for="product in allData.products"
                 :key="product._id"
-                >
-                    <p>Contient le produit : {{ordersArray}}</p>
-                </div>
-
-            </router-link>
+                > -->
+                    <!-- <p>Contient le produit : {{allData}}</p> -->
+                <!-- </div> -->
         </div>
     </div>
 </template>
@@ -26,7 +24,7 @@
         data: function () {
             return {
                 i: Number,
-                ordersArray : [],
+                allData : [] || {},
                 productsId : [],
             }  
         },
@@ -34,7 +32,7 @@
             ordersObject: String,
         },
         created() {
-            // for (this.i = 0; this.i < this.ordersArray.products.length; this.i++) {
+            // for (this.i = 0; this.i < this.allData.products.length; this.i++) {
             //     console.log(this.i)                
             // }
             console.log(`Je suis ordersObject in OrdersItem = ${this.ordersObject}`)
@@ -42,8 +40,8 @@
             .then(res=>res.json())
             .then((data) => {
                 console.log(data)
-                this.ordersArray = data
-                console.log(this.ordersArray)
+                this.allData = data
+                console.log(this.allData)
             })
             .catch(err=> console.log(err))
         },

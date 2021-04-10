@@ -142,7 +142,7 @@ import TitlePage from "../components/TitlePage";
                    this.lastname= data.lastname;
                    this.phone= data.phone;
                    this.email= data.email;
-                   this.fullAddress= data.adress.fullAddress;
+                   this.fullAddress= data.adress.fullAddress;   
                    this.city= data.adress.city;
                    this.postalCode= data.adress.postalCode;
                    this.country= data.adress.country;

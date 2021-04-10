@@ -1,5 +1,7 @@
 <template>
     <div>
+        <!-- <img src="../../assets/img/dybala.jpg" alt=""> -->
+       
         <div class="product__card" v-if="productsObject">
             <router-link :to="{name: 'Product', params:{id:this.productsObject._id}}">
                 <h2>
@@ -9,6 +11,8 @@
             <p>            
                 {{productsObject.price}}
             </p>
+              <img :src="require(`@/assets/img/${productsObject.imageUrl}`)" alt="">
+            
             <p>
                 <button @click="addItemToCart(productsObject)">Ajouter au panier</button>
             </p>
@@ -29,8 +33,14 @@
         props:{
             productsObject: Object,
         },
+        data() {
+            return {
+                // img: productsObject.imageUrl
+                img: "@/assets/img/dybala.jpg"
+            }
+        },
         created() {
-            // console.log(this.productsObject)
+            console.log(this.img)
         },
         methods:{
             addItemToCart: function(product) {

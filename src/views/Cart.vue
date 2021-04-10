@@ -59,7 +59,8 @@ import FooterVue from '../layout/Footer.vue';
                 cartArray:[],
                 i: Number,
                 idProducts: [],
-                idUser : Array
+                idUser : Array,
+                dateActuel: String
                 // parseObj:[]
                 // calcQty:0
             }
@@ -81,7 +82,11 @@ import FooterVue from '../layout/Footer.vue';
                 console.log("Je suis l'id decodé = "+decodedToken.id);
                 this.idUser = decodedToken.id
             }
-            // this.calcQty = this.getCartCount(this.cartArray)
+                var today = new Date();
+                var date = today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear()
+                var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+
+                this.dateActuel = date+' à '+time;
         },
         computed:{
             calcQty: function () {
@@ -118,11 +123,11 @@ import FooterVue from '../layout/Footer.vue';
                 method: "POST",
                 headers: {"Content-Type":"Application/json"},
                 body: JSON.stringify( {
-                    total:  399,
-                    user: mySelf.idUser,
-                    products: 
-                        mySelf.idProducts,
+                    total:  1000,
                     status: "En cours",
+                    date: this.dateActuel,
+                    user: mySelf.idUser,
+                    products: mySelf.idProducts,
                 })
             })
             .then (res => res.json())
@@ -132,7 +137,8 @@ import FooterVue from '../layout/Footer.vue';
                     console.log(`Je suis l'erreur : ${data}`)
                     this.messageError = data.error;
                 } else {
-                    // this.$router.push('/orders');
+                    this.$router.push('/orders');
+                    console.log("Je suis la date actuelle = "+this.dateActuel)
                 }
             })
             .catch(err => console.log(err));
@@ -155,7 +161,7 @@ import FooterVue from '../layout/Footer.vue';
                 this.clearCart()
                 this.cartArray = this.getCart();
                 // console.log(cartArray)
-            }
+            },
         }
     }
 </script>
