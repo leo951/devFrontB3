@@ -11,7 +11,6 @@
 <script>
 import OrdersItem from './OrdersItem'
     export default {
-        name: "ProductsGrid",
         components: {
             OrdersItem
         },

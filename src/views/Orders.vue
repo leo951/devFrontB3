@@ -20,7 +20,7 @@ import VueJwtDecode from "vue-jwt-decode";
 
 
     export default {
-        name: "Shop",
+        name: "Orders",
         components: {
             TitlePage,
             OrdersGrid

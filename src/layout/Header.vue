@@ -13,7 +13,10 @@
             <!-- <router-link to="/product">Product</router-link> | -->
             <router-link to="/account">Mon compte</router-link> |
             <router-link to="/signIn">Inscription</router-link> |
-            <router-link to="/login">Login</router-link> |
+            <router-link to="/login">Login</router-link> |||
+            <router-link to="/dashboard">Dashboard</router-link> |
+
+
 
         </div>
     </header>

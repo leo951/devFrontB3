@@ -12,6 +12,23 @@ import Favorite from '../views/Favorite.vue'
 import Orders from '../views/Orders.vue'
 import SignIn from '../views/SignIn.vue'
 
+// Partie Admin
+
+import ProductAdmin from '../views/admin/ProductAdmin.vue'
+import CreateProducts from '../views/admin/CreateProducts.vue'
+import CreateUser from '../views/admin/CreateUser.vue'
+import UserModify from '../views/admin/UserModify.vue'
+import CreateCategory from '../views/admin/CreateCategory.vue'
+import CategoryAdmin from '../views/admin/CategoryAdmin.vue'
+import Dashboard from '../views/DashboardAdmin/Dashboard.vue'
+import DashboardCategory from '../views/DashboardAdmin/DashboardCategory.vue'
+import DashboardUsers from '../views/DashboardAdmin/DashboardUsers.vue'
+import DashboardProducts from '../views/DashboardAdmin/DashboardProducts.vue'
+
+
+
+
+
 
 
 Vue.use(VueRouter)
@@ -77,6 +94,59 @@ const routes = [
     path: '/login/',
     name: 'Login',
     component: Login
+  },
+
+                //Partie Admin
+  
+  {
+    path: '/productAdmin',
+    name: 'ProductAdmin',
+    component: ProductAdmin
+  },
+  {
+    path: '/userModify',
+    name: 'UserModify',
+    component: UserModify
+  },
+  {
+    path: '/createProducts',
+    name: 'CreateProducts',
+    component: CreateProducts
+  },
+  {
+    path: '/createUser',
+    name: 'CreateUser',
+    component: CreateUser
+  },
+  {
+    path: '/createCategory',
+    name: 'CreateCategory',
+    component: CreateCategory
+  },
+  {
+    path: '/categoryAdmin',
+    name: 'CategoryAdmin',
+    component: CategoryAdmin
+  },
+  {
+    path: '/dashboard',
+    name: 'Dashboard',
+    component: Dashboard
+  },
+  {
+    path: '/dashboardCategory',
+    name: 'DashboardCategory',
+    component: DashboardCategory
+  },
+  {
+    path: '/dashboardUsers',
+    name: 'DashboardUsers',
+    component: DashboardUsers
+  },
+  {
+    path: '/dashboardProducts',
+    name: 'DashboardProducts',
+    component: DashboardProducts
   },
 ]
 
