@@ -12,12 +12,6 @@
             <div class="form__group">
                <input type="submit" value="se connecter">
             </div>
-            <div class="form__group">
-            <router-link :to="{name: 'LoginAdmin'}">
-               <input type="submit" value="connexion admin">
-            </router-link>
-
-            </div>
         </form>
         <p v-if="messageError">
             {{messageError}}
@@ -49,7 +43,7 @@
                    },
                    body : JSON.stringify(body)
                 }
-                fetch("http://localhost:3000/api/v1/users/login",requestOptions)
+                fetch("http://localhost:3000/api/v1/users/loginAdmin",requestOptions)
                 .then (res => res.json())
                 .then((data) => {
                     console.log(data)
@@ -58,9 +52,13 @@
                             console.log('je ne rentre pas dans la validation')
                         }
                         else {
-                            let token = data.token;
-                            localStorage.setItem('token',token);
+                            let tokenAdmin = data.token;
+                            var ImAdmin = "je suis admin"
+                            localStorage.setItem('token',tokenAdmin);
+                            localStorage.setItem('Admin', ImAdmin)
+                            console.log(`Je suis tokenAdmin = ${tokenAdmin}`)
                             this.$router.push('/account');
+                            console.log(`Je suis connecter en temps qu'administrateur`)
                         }
                     }
                 )

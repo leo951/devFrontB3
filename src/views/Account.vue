@@ -87,6 +87,9 @@ import TitlePage from "../components/TitlePage";
         methods: {
             logout: function() {
                 localStorage.removeItem('token');
+                localStorage.removeItem('Admin');
+                localStorage.removeItem('cart');
+
                 this.isLogged = false;
             },
             modify: function(){
@@ -126,6 +129,7 @@ import TitlePage from "../components/TitlePage";
         },
         created() {
             const token = localStorage.getItem('token');
+            const tokenAdmin = localStorage.getItem('tokenAdmin');
             if(token) {
                const decodedToken = VueJwtDecode.decode(token);
                console.log(decodedToken.id);
@@ -151,8 +155,35 @@ import TitlePage from "../components/TitlePage";
                    console.log(data)
                })
                .catch(err => console.log(err))
+            }            
+            else if(tokenAdmin) {
+               const decodedToken = VueJwtDecode.decode(tokenAdmin);
+               console.log(`Je suis le token pour authorization = ${tokenAdmin}`)
+               console.log(`Je suis le tokenAdmin decoder = ${decodedToken.id}`);
+               fetch(`http://localhost:3000/api/v1/users/admin/${decodedToken.id}`, {
+                   headers: {
+                       Authorization: tokenAdmin
+                   }
+               })
+               .then(res => res.json())
+               .then(data=>{
+                   console.log("Je suis data dans Account = "+data.adress)
+                   this.user = data;
+                   this.firstname= data.firstname;
+                   this.lastname= data.lastname;
+                   this.phone= data.phone;
+                   this.email= data.email;
+                   this.fullAddress= data.adress.fullAddress;
+                   this.city= data.adress.city;
+                   this.postalCode= data.adress.postalCode;
+                   this.country= data.adress.country;
+                   
+                   this.isLogged = true;
+                   console.log(data)
+               })
+               .catch(err => console.log(err))
             }
-        }
+        },
     }
 </script>
 

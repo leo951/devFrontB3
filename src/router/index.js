@@ -7,6 +7,8 @@ import Product from '../views/Product.vue'
 import Category from '../views/Category.vue'
 import Login from '../views/Login.vue'
 import authGuard from '../middleware/auth'
+import authGuardAdmin from '../middleware/authAdmin'
+
 import Cart from '../views/Cart.vue'
 import Favorite from '../views/Favorite.vue'
 import Orders from '../views/Orders.vue'
@@ -24,6 +26,8 @@ import Dashboard from '../views/DashboardAdmin/Dashboard.vue'
 import DashboardCategory from '../views/DashboardAdmin/DashboardCategory.vue'
 import DashboardUsers from '../views/DashboardAdmin/DashboardUsers.vue'
 import DashboardProducts from '../views/DashboardAdmin/DashboardProducts.vue'
+import LoginAdmin from '../views/admin/LoginAdmin.vue'
+
 
 
 
@@ -63,7 +67,7 @@ const routes = [
     path: '/account',
     name: 'Account',
     component: Account,
-    //via middleware
+    // via middleware
     beforeEnter(to, from, next) {
       if (!localStorage.getItem('token')) {
          next({
@@ -97,7 +101,12 @@ const routes = [
   },
 
                 //Partie Admin
-  
+
+  {
+    path: '/loginAdmin',
+    name: 'LoginAdmin',
+    component: LoginAdmin
+  },
   {
     path: '/productAdmin',
     name: 'ProductAdmin',
@@ -131,7 +140,18 @@ const routes = [
   {
     path: '/dashboard',
     name: 'Dashboard',
-    component: Dashboard
+    component: Dashboard,
+        //via middleware
+        beforeEnter(to, from, next) {
+          if (!localStorage.getItem('Admin')) {
+             next({
+              name:"Home"
+            })
+          }
+          else {
+            next();
+          }
+        }
   },
   {
     path: '/dashboardCategory',
