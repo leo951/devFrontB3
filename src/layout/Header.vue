@@ -81,10 +81,11 @@ import VueJwtDecode from "vue-jwt-decode";
         height: 150px;
         width: 150px;
     }
-    .header__nav {
-        font-size: 2em;
+    .header__nav{
+        font-size: 0.5em;
+        width: 100%;
         a {
-            font-size: 1.1em;
+            font-size: 0.5em;
             letter-spacing: 2px;
             color: grey;
             padding: 5px 20px;
