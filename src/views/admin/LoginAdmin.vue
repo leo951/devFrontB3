@@ -52,19 +52,19 @@ import TitlePage from '../../components/TitlePage';
                 fetch("http://localhost:3000/api/v1/users/loginAdmin",requestOptions)
                 .then (res => res.json())
                 .then((data) => {
-                    console.log(data)
+                    // console.log(data)
                         if(!data.auth) {
                             this.messageError = data.message;
-                            console.log('je ne rentre pas dans la validation')
+                            // console.log('je ne rentre pas dans la validation')
                         }
                         else {
                             let tokenAdmin = data.token;
                             var ImAdmin = "je suis admin"
                             localStorage.setItem('token',tokenAdmin);
                             localStorage.setItem('Admin', ImAdmin)
-                            console.log(`Je suis tokenAdmin = ${tokenAdmin}`)
+                            // console.log(`Je suis tokenAdmin = ${tokenAdmin}`)
                             this.$router.push('/account');
-                            console.log(`Je suis connecter en temps qu'administrateur`)
+                            // console.log(`Je suis connecter en temps qu'administrateur`)
                         }
                     }
                 )

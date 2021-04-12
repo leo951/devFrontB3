@@ -10,7 +10,7 @@ export default{
                 price: product.price,
                 qty: 1
             };
-            console.log(productObject)
+            // console.log(productObject)
 
             let indexOfExistingProduct = cart.findIndex(
                 (el) =>  el.id === productObject.id
@@ -22,7 +22,7 @@ export default{
             }
             else{
                 cart.push(productObject);
-                console.log("Le produit à été ajouté")
+                // console.log("Le produit à été ajouté")
             }
 
             

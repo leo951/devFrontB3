@@ -19,7 +19,6 @@ import CategoryItem from './CategoryItem'
             CategoryArray: Array,
         },
         created(){
-            console.log("je suis category array dans grid"+this.CategoryArray);
         }
     }
 </script>

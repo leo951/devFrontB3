@@ -35,7 +35,7 @@ export default {
     this.getCategoryAll()
     .then((data) => {
         this.categoryFromApi = data;
-        console.log(`Je suis categoryFromApi dans Home ${data}`)
+        // console.log(`Je suis categoryFromApi dans Home ${data}`)
     })
     .catch(err=> console.log(err))
 },

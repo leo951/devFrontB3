@@ -19,7 +19,6 @@ import ProductsItem from './ProductsItem'
             productsArray: Array
         },
         created() {
-            console.log(`Je suis la longueur de productsArrray = ${this.productsArray.length}`)
         },
     }
 </script>

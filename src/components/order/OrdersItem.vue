@@ -35,13 +35,10 @@
             // for (this.i = 0; this.i < this.allData.products.length; this.i++) {
             //     console.log(this.i)                
             // }
-            console.log(`Je suis ordersObject in OrdersItem = ${this.ordersObject}`)
             fetch(`http://localhost:3000/api/v1/orders/${this.ordersObject}`)
             .then(res=>res.json())
             .then((data) => {
-                console.log(data)
                 this.allData = data
-                console.log(this.allData)
             })
             .catch(err=> console.log(err))
         },

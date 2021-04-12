@@ -49,14 +49,14 @@ import ApiProducts from '../mixins/ApiProducts';
         },
         methods: {
             search: function(){
-                console.log(this.searchValue)
+                // console.log(this.searchValue)
             }
         },
         mixins:[ApiProducts],
         created() {
             this.getProducts()
             .then((data) => {
-                console.log(data)
+                // console.log(data)
                 this.productsFromApi = data;
             })
             .catch((err) => console.log(err));

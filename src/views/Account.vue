@@ -126,7 +126,7 @@ import TitlePage from "../components/TitlePage";
             const tokenAdmin = localStorage.getItem('tokenAdmin');
             if(token) {
                const decodedToken = VueJwtDecode.decode(token);
-               console.log(decodedToken.id);
+            //    console.log(decodedToken.id);
                fetch(`http://localhost:3000/api/v1/users/${decodedToken.id}`, {
 
                    headers: {
@@ -146,14 +146,14 @@ import TitlePage from "../components/TitlePage";
                    this.country= data.adress.country;
                    
                    this.isLogged = true;
-                   console.log(data)
+                //    console.log(data)
                })
                .catch(err => console.log(err))
             }            
             else if(tokenAdmin) {
                const decodedToken = VueJwtDecode.decode(tokenAdmin);
-               console.log(`Je suis le token pour authorization = ${tokenAdmin}`)
-               console.log(`Je suis le tokenAdmin decoder = ${decodedToken.id}`);
+            //    console.log(`Je suis le token pour authorization = ${tokenAdmin}`)
+            //    console.log(`Je suis le tokenAdmin decoder = ${decodedToken.id}`);
                fetch(`http://localhost:3000/api/v1/users/admin/${decodedToken.id}`, {
                    headers: {
                        Authorization: tokenAdmin
@@ -161,7 +161,7 @@ import TitlePage from "../components/TitlePage";
                })
                .then(res => res.json())
                .then(data=>{
-                   console.log("Je suis data dans Account = "+data.adress)
+                //    console.log("Je suis data dans Account = "+data.adress)
                    this.user = data;
                    this.firstname= data.firstname;
                    this.lastname= data.lastname;
@@ -173,7 +173,7 @@ import TitlePage from "../components/TitlePage";
                    this.country= data.adress.country;
                    
                    this.isLogged = true;
-                   console.log(data)
+                //    console.log(data)
                })
                .catch(err => console.log(err))
             }

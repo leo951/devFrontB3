@@ -78,7 +78,7 @@ import FooterVue from '../layout/Footer.vue';
             for (this.i = 0; this.i < parseObj.length; this.i++) {
                 this.idProducts.push(parseObj[this.i].id)
                 // console.log(`Je suis parseObj : ${parseObj[this.i].id}`)
-                console.log(`Je suis Id : ${this.id}`)
+                // console.log(`Je suis Id : ${this.id}`)
 
             }
              
@@ -86,7 +86,7 @@ import FooterVue from '../layout/Footer.vue';
             const token = localStorage.getItem('token');
             if(token) {
                 const decodedToken = VueJwtDecode.decode(token);
-                console.log("Je suis l'id decodé = "+decodedToken.id);
+                // console.log("Je suis l'id decodé = "+decodedToken.id);
                 this.idUser = decodedToken.id
             }
                 var today = new Date();
@@ -119,7 +119,7 @@ import FooterVue from '../layout/Footer.vue';
                     
                     });
                     this.getOrder()
-                    console.log("Je suis this.total = ",this.total)
+                    // console.log("Je suis this.total = ",this.total)
                 const session = await response.json();
                 const result = await stripe.redirectToCheckout({
                     sessionId:session.id
@@ -145,11 +145,11 @@ import FooterVue from '../layout/Footer.vue';
             .then((data) => {
                 if(data.error) {
                     console.log(data.error);
-                    console.log(`Je suis l'erreur : ${data}`)
+                    // console.log(`Je suis l'erreur : ${data}`)
                     this.messageError = data.error;
                 } else {
                     // this.$router.push('/orders');
-                    console.log("Je suis la date actuelle = "+this.dateActuel)
+                    // console.log("Je suis la date actuelle = "+this.dateActuel)
                 }
             })
             .catch(err => console.log(err));

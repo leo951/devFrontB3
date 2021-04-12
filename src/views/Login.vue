@@ -56,10 +56,10 @@ import TitlePage from '../components/TitlePage';
                 fetch("http://localhost:3000/api/v1/users/login",requestOptions)
                 .then (res => res.json())
                 .then((data) => {
-                    console.log(data)
+                    // console.log(data)
                         if(!data.auth) {
                             this.messageError = data.message;
-                            console.log('je ne rentre pas dans la validation')
+                            // console.log('je ne rentre pas dans la validation')
                         }
                         else {
                             let token = data.token;

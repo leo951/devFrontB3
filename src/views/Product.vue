@@ -46,7 +46,7 @@ import Favorite from "../mixins/Favorite";
         },
         methods:{
             addItemToCart: function(product) {
-                console.log(`Je suis product.title dans productItem = ${this.productItem.title}`)
+                // console.log(`Je suis product.title dans productItem = ${this.productItem.title}`)
                 this.addToCart(product)
             },
             addItemToFavorite: function(product) {

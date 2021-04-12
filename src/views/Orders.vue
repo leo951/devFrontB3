@@ -38,7 +38,7 @@ import VueJwtDecode from "vue-jwt-decode";
             const token = localStorage.getItem('token');
             if(token) {
                 const decodedToken = VueJwtDecode.decode(token);
-                console.log("Je suis l'id decodé = "+decodedToken.id);
+                // console.log("Je suis l'id decodé = "+decodedToken.id);
                 // this.idUser = decodedToken.id
                fetch(`http://localhost:3000/api/v1/users/${decodedToken.id}`, {
                    headers: {
@@ -49,10 +49,10 @@ import VueJwtDecode from "vue-jwt-decode";
                 .then((data) => {
                     this.ordersFromApi = data;
                     // console.log("je suis data = ", data)
-                    console.log(`Je suis ordersFromApi in Orders = ${this.ordersFromApi.orders[0]._id}`)
+                    // console.log(`Je suis ordersFromApi in Orders = ${this.ordersFromApi.orders[0]._id}`)
                     for (let index = 0; index < this.ordersFromApi.orders.length; index++) {
                         this.ordersId.push(this.ordersFromApi.orders[index]._id)
-                        console.log(`Je suis ordersId = ${this.ordersId}`)
+                        // console.log(`Je suis ordersId = ${this.ordersId}`)
                     }
                 })
                 .catch((err) => console.log(err));

@@ -18,7 +18,6 @@ import OrdersItem from './OrdersItem'
             ordersArray: Array
         },
         created() {
-            console.log(`Je suis ordersArray in OrdersGrid = ${this.ordersArray}`)
         },
     }
 </script>

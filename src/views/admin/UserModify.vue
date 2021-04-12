@@ -110,7 +110,9 @@ import TitlePage from "../../components/TitlePage";
             update: function(){
                 const token = localStorage.getItem('token');
                 const decodedToken = VueJwtDecode.decode(token);
+                // console.log("Je suis decodedToken = "+decodedToken.id)
 
+                //Fonctionne sur postMan mais pas ici
                 return fetch(`http://localhost:3000/api/v1/users/update/${decodedToken.id}`, {
                  method: "POST",
                  headers: {"Content-Type":"Application/json"},
@@ -123,11 +125,11 @@ import TitlePage from "../../components/TitlePage";
                     city : this.city,
                     postalCode : this.postalCode,
                     country : this.country
-                    
                 })
                 })
                 .then (res => res.json())
                 .then((data) => {
+                    // console.log("Je suis data "+data.firstname)
                     this.firstname= data.firstname;
                    this.lastname= data.lastname;
                    this.phone= data.phone;
@@ -146,12 +148,12 @@ import TitlePage from "../../components/TitlePage";
                 .catch(err => console.log(err));
             }
         },
-        mounted() {
+        created() {
             const token = localStorage.getItem('token');
-            console.log(token);
+            // console.log(token);
             if(token) {
                const decodedToken = VueJwtDecode.decode(token);
-               console.log(decodedToken);            
+            //    console.log(decodedToken);            
                fetch(`http://localhost:3000/api/v1/users/${this.$route.params.id}`,{
             
                    headers: {
@@ -161,7 +163,7 @@ import TitlePage from "../../components/TitlePage";
                 
             .then(res=>res.json())
             .then((data)=>{
-                console.log(data);
+                // console.log(data);
                 this.userItem = data;
                 this.user = data;
                 this.firstname= data.firstname;

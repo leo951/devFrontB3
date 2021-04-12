@@ -12,7 +12,7 @@
     export default {
         name:"CategoryItem",
         created() {
-            console.log(`Je suis categoryObject dans CategoryItem ${this.categoryObject.title}`)        },
+            },
         props:{
             categoryObject: Object,
         }

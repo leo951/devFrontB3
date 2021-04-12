@@ -109,7 +109,7 @@
             fetch(`http://localhost:3000/api/v1/category/${this.$route.params.id}`)
             .then(res=>res.json())
             .then((data)=>{
-                console.log(data);
+                // console.log(data);
                 this.productItemAdmin = data;
                 this.title= data.title;
                 this.products= data.products;

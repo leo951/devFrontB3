@@ -113,7 +113,7 @@
                     this.description= data.description;
                     this.imageUrl= data.imageUrl;
                     this.price= data.price;
-                    console.log(`je suis this.price ${this.prices}`)
+                    // console.log(`je suis this.price ${this.prices}`)
                     this.category= data.category;
                         if(data.error) {
                             console.log(data.error);
@@ -129,14 +129,14 @@
             fetch(`http://localhost:3000/api/v1/products/${this.$route.params.id}`)
             .then(res=>res.json())
             .then((data)=>{
-                console.log(data);
+                // console.log(data);
                 this.productItem = data;
                 this.title= data.title;
                 this.description= data.description;
                 this.imageUrl= data.imageUrl;
                 this.price= data.price;
                 this.category= data.category;
-                console.log(`Je suis this.imgUrl = ${this.imageUrl}`)
+                // console.log(`Je suis this.imgUrl = ${this.imageUrl}`)
             })
             .catch(err=> console.log(err));
         }

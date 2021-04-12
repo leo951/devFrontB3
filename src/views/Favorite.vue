@@ -45,7 +45,7 @@
         },
         created() {
             this.favoriArray = this.getFavori();
-            console.log("dsvkldsnclqcnw"+this.favoriArray)
+            // console.log("dsvkldsnclqcnw"+this.favoriArray)
         },
         computed:{
 
@@ -54,7 +54,7 @@
             clearFavori: function () {
                 this.clearFavorite()
                 this.favoriArray = this.getFavori();
-                console.log(this.favoriArray)
+                // console.log(this.favoriArray)
             },
             removeFavori: function (product) {
                 this.removeItemFavori(product);

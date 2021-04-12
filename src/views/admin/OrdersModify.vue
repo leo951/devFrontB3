@@ -84,7 +84,7 @@
             fetch(`http://localhost:3000/api/v1/orders/${this.$route.params.id}`)
             .then(res=>res.json())
             .then((data)=>{
-                console.log("Je suis data = ",data);
+                // console.log("Je suis data = ",data);
                 this.ordersItem = data;
                 this.id= data._id;
                 this.date= data.date;

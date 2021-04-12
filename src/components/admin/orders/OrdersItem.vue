@@ -18,7 +18,6 @@
     export default {
         name:"OrdersItem",
         created() {
-        console.log(`Je suis ordersObject in OrdersItem ${this.ordersObject}`)
         },
         props:{
             ordersObject: Object,

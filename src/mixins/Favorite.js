@@ -9,7 +9,7 @@ export default{
                 price: product.price,
                 isFavorite: product.isFavorite = true
             };
-            console.log(productObject)
+            // console.log(productObject)
 
             let indexOfExistingProduct = favori.findIndex(
                 (el) =>  el.id === productObject.id
@@ -21,8 +21,8 @@ export default{
             }
             else{
                 favori.push(productObject);
-                console.log("Le produit à été ajouté")
-                console.log(productObject)
+                // console.log("Le produit à été ajouté")
+                // console.log(productObject)
             }
 
             localStorage.setItem('favorite',JSON.stringify(favori));

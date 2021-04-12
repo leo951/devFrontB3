@@ -36,7 +36,6 @@ import VueJwtDecode from "vue-jwt-decode";
     mounted() {
         const token = localStorage.getItem('token');
         const decodedToken = VueJwtDecode.decode(token);
-        console.log(decodedToken.id);
         fetch(`http://localhost:3000/api/v1/users/${decodedToken.id}`, {
             headers: {
                 Authorization: token
@@ -50,15 +49,15 @@ import VueJwtDecode from "vue-jwt-decode";
                 this.isAdmin = true
                 this.isUser = false
                 this.isConnect = true
-                console.log(`Je suis this.admin1 = ${this.isAdmin} & Je suis aussi this.User1 = ${this.isUser} puis isConnect ${this.isConnect}`)
+                // console.log(`Je suis this.admin1 = ${this.isAdmin} & Je suis aussi this.User1 = ${this.isUser} puis isConnect ${this.isConnect}`)
             }
             else{
                 this.isAdmin = false
                 this.isUser = true
                 this.isConnect = true
-                console.log(`Je suis this.admin2 = ${this.isAdmin} & je suis aussi this.User2 = ${this.isUser} puis isConnect ${this.isConnect}`)
+                // console.log(`Je suis this.admin2 = ${this.isAdmin} & je suis aussi this.User2 = ${this.isUser} puis isConnect ${this.isConnect}`)
         }
-            console.log(`Je suis this.user = ${this.user.isAdmin}`)
+            // console.log(`Je suis this.user = ${this.user.isAdmin}`)
         })
         .catch(err => console.log(err))     
     },
