@@ -95,7 +95,7 @@
             
             update: function(){
     
-                return fetch(`http://localhost:3030/api/v1/products/update/${this.$route.params.id}`, {
+                return fetch(`http://localhost:3000/api/v1/products/update/${this.$route.params.id}`, {
                  method: "POST",
                  headers: {"Content-Type":"Application/json"},
                  body: JSON.stringify( {
@@ -113,6 +113,7 @@
                     this.description= data.description;
                     this.imageUrl= data.imageUrl;
                     this.price= data.price;
+                    console.log(`je suis this.price ${this.prices}`)
                     this.category= data.category;
                         if(data.error) {
                             console.log(data.error);
