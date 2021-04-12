@@ -1,20 +1,8 @@
-# eshop_ynov
+Pour demarrer : npm run serve
 
-## Project setup
-```
-npm install
-```
+Pour ce connecter   : User  : test.1@gmail.com      MDP  : 123456789
+                    : Admin : admin.1@gmail.com     MDP : 123456789
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+Pensez à actualiser la page lorsque vous serez connecter (je n'ai pas trouvé comment forcer le rechargement de la page)
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
-"# devFrontCours" 
+Si vous avez des problèmes n'hésitez pas à me contacter
