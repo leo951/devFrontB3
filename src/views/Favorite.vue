@@ -1,31 +1,34 @@
 <template>
     <div class="shopping__cart">
-        <table class="shop__table">
-            <thead>
-                <tr>
-                    <th>Titre</th>
-                    <th>Quantité</th>
-                    <th>Prix</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr v-for="item in favoriArray" :key="item.id">
-                    <td>{{item.title}}</td>
-                    <td>{{item.qty}}</td>
-                    <td>{{item.price}}</td>
-                    <td>
-                        <button @click="removeFavori(item)">Supprimer le produit</button>
-                    </td>
-                    <td>
-                        <button @click="addItemToCart(item)">Ajouter au panier</button>
-                    </td>
+        <h1>Favories</h1>
+        <div class="shopping__cart-content">
+            <table class="shop__table">
+                <thead>
+                    <tr>
+                        <th>Titre</th>
+                        <th>Prix</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="item in favoriArray" :key="item.id">
+                        <td>{{item.title}}</td>
+                        <td>{{item.price}}</td>
+                        <td>
+                            <button @click="removeFavori(item)">Supprimer le produit</button>
+                        </td>
+                        <td>
+                            <button @click="addItemToCart(item)">Ajouter au panier</button>
+                        </td>
 
-                </tr>
-                    <div>
-                        <button @click="clearFavori()">Supprimer les favoris</button>
-                    </div>
-            </tbody>
-        </table>
+                    </tr>
+
+                </tbody>
+                
+            </table>
+        </div>
+        <div class="shopping__cart-button">
+            <button @click="clearFavori()">Supprimer les favoris</button>
+        </div>
     </div>
 </template>
 
@@ -66,5 +69,17 @@
 </script>
 
 <style lang="scss" scoped>
-
+.shopping__cart-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 2em;
+}
+.shopping__cart-button{
+    button{
+        margin: 50px 10px;
+        padding: 5px 10px;
+        font-size: 1.2em;
+    }
+}
 </style>

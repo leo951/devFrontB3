@@ -3,12 +3,14 @@
         <TitlePage title="Gerer le profil"/>
         <div v-if="show">
             <div class="user__info" v-if="UserItem">
-                <p>Nom :{{firstname}}</p>
-                <p>Prénom :{{lastname}}</p>
-                <p>Numéro de téléphone :{{phone}}</p>
-                <p>Email :{{email}}</p>
-                <p> Adresse : {{fullAddress}} {{postalCode}} ,</p>
+                <p>{{firstname}}</p>
+                <p>{{lastname}}</p>
+                <p>{{phone}}</p>
+                <p>{{email}}</p>
+                <p>{{fullAddress}} {{postalCode}} ,</p>
                 <p> {{city}} , {{country}} </p>
+            </div>
+            <div class="user__button">
                 <button @click="delet"> Supprimer l'utilisateur</button>
                 <button @click="modify">modifier l'utilisateur</button>
             </div>
@@ -18,33 +20,26 @@
         <div v-if="isclick && UserItem">
                 <form @submit.prevent="update">
                     <div class="form__group">
-                        <label htmlFor="firstname"> Prenom </label>
-                        <input class="inpt" type="text" name="firstname"  v-model="firstname" />
+                        <input class="inpt" type="text" name="firstname" placeholder="Prénom" v-model="firstname" />
                     </div>
                     <div class="form__group">
-                        <label htmlFor="lastname"> Nom </label>
-                        <input class="inpt" type="text" name="lastname"  v-model="lastname" />
+                        <input class="inpt" type="text" name="lastname" placeholder="Nom" v-model="lastname" />
                     </div>
                     <div class="form__group">
-                        <label htmlFor="phone"> Numéro de téléphone </label>
-                        <input class="inpt" type="text" name="phone" v-model="phone"> <br>
+                        <input class="inpt" type="text" name="phone" placeholder="Numéro de téléphone" v-model="phone"> <br>
                     </div>
                     
                      <div class="form__group">
-                        <label htmlFor="address"> Adresse (numéro et fullAddress) </label>
-                        <input class="inpt" type="text" name="address"  v-model="fullAddress" />
+                        <input class="inpt" type="text" name="address" placeholder="Adresse complète" v-model="fullAddress" />
                     </div>
                     <div class="form__group">
-                        <label htmlFor="city"> city </label>
-                        <input class="inpt" type="text" name="city"  v-model="city" />
+                        <input class="inpt" type="text" name="city" placeholder="Ville" v-model="city" />
                     </div>
                     <div class="form__group">
-                        <label htmlFor="postalCode"> Code postal </label>
-                        <input class="inpt" type="text" name="postalCode"  v-model="postalCode" />
+                        <input class="inpt" type="text" name="postalCode" placeholder="Code postale" v-model="postalCode" />
                     </div>
                     <div class="form__group">
-                        <label htmlFor="country"> country </label>
-                        <input class="inpt" type="text" name="country"  v-model="country" />
+                        <input class="inpt" type="text" name="country" placeholder="Pays" v-model="country" />
                     </div> 
                     
                     

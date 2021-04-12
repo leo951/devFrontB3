@@ -5,7 +5,8 @@
             <div class="product__content" v-if="productItem">
                 <TitlePage :title="productItem.title"/>
 
-                <img :src="productItem.imageUrl"/>
+                <img :src="(`@/assets/img/${this.imageUrl}`)"/>
+                <!-- <img :src="require(`@/assets/img/${productsObject.imageUrl}`)" alt=""> -->
                 <p>
                     {{productItem.description}}
                 </p>
@@ -20,25 +21,20 @@
         <div v-if="isClicked">
                 <form @submit.prevent="update">
                     <div class="form__group">
-                        <label htmlFor="title"> title </label>
-                        <input class="inpt" type="text" name="title"  v-model="title" />
+                        <input class="inpt" type="text" name="title" placeholder="Titre" v-model="title" />
                     </div>
                     <div class="form__group">
-                        <label htmlFor="description"> description </label>
-                        <input class="inpt" type="text" name="description"  v-model="description" />
+                        <input class="inpt" type="text" name="description" placeholder="Description du produit" v-model="description" />
                     </div>
                     <div class="form__group">
-                        <label htmlFor="imageUrl"> imageUrl </label>
-                        <input class="inpt" type="text" name="telephone" v-model="imageUrl"> <br>
+                        <input class="inpt" type="text" name="image" placeholder="Nom de l'image" v-model="imageUrl"> <br>
                     </div>
                     
                      <div class="form__group">
-                        <label htmlFor="price"> price </label>
-                        <input class="inpt" type="text" name="price"  v-model="price" />
+                        <input class="inpt" type="text" name="price" placeholder="Prix" v-model="price" />
                     </div>
                     <div class="form__group">
-                        <label htmlFor="category"> category </label>
-                        <input class="inpt" type="text" name="category"  v-model="category" />
+                        <input class="inpt" type="text" name="category" placeholder="Categorie" v-model="category" />
                     </div>
     
                     <div class="form__group">
@@ -139,6 +135,7 @@
                 this.imageUrl= data.imageUrl;
                 this.price= data.price;
                 this.category= data.category;
+                console.log(`Je suis this.imgUrl = ${this.imageUrl}`)
             })
             .catch(err=> console.log(err));
         }

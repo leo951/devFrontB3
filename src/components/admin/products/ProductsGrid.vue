@@ -25,4 +25,10 @@ import ProductsItem from './ProductsItem'
 </script>
 
 <style lang="scss" scoped>
+.products__grid{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 </style>

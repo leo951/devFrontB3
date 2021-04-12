@@ -4,7 +4,6 @@
             <TitlePage :title="categoryItem.title"/>
         </div>
         <div class="categery__content">
-
             <ProductsItem 
             v-for="product in products" :key="product._id" :productsObject="product"
         />
@@ -48,5 +47,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+.categery__content{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+}
 </style>

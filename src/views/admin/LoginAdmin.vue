@@ -1,13 +1,14 @@
 <template>
     <div class="login__form">
+
+        <TitlePage title="Page de connection d'admin"/>
+
         <form @submit.prevent="login">
             <div class="form__group">
-                <label htmlFor="email">Mail</label>
-                <input type="email" name="email" v-model="email"/>
+                <input class="inpt" type="email" name="email" placeholder="Email" v-model="email"/>
             </div>
             <div class="form__group">
-                <label htmlFor="password">Password</label>
-                <input type="password" name="password" v-model="password"/>
+                <input class="inpt" type="password" name="password" placeholder="Mot de passe" v-model="password"/>
             </div>
             <div class="form__group">
                <input type="submit" value="se connecter">
@@ -20,7 +21,12 @@
 </template>
 
 <script>
+import TitlePage from '../../components/TitlePage';
+
     export default {
+        components: {
+            TitlePage
+        },
         data: function() {
             return {
                 email:"",
@@ -71,5 +77,23 @@
 </script>
 
 <style lang="scss" scoped>
-
+        .login__form {
+        width: 500px;
+        border: 1px solid #CCCCCC;
+        border-radius: 4px;
+        background-color: #FFFFFF;
+        margin: auto;
+        margin-top: 50px;
+        padding: 20px;
+    }
+    .inpt{
+    width: 350px;
+    height:30px;
+    text-align: center;
+    color: black;
+    background-color: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    border-radius: .25rem;
+    margin-bottom: 30px;
+}
 </style>

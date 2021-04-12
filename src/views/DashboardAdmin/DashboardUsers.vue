@@ -42,5 +42,9 @@ import ApiUsers from '../../mixins/ApiUsers'
 </script>
 
 <style lang="scss" scoped>
-    
+    .user{
+        button{
+            margin-top: 50px;
+        }
+    }
 </style>

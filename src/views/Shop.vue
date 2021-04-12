@@ -2,16 +2,16 @@
     <div class="page__shop">
         <TitlePage title="Mon Eshop"/>
         <div class="search__form">
-            <input type="text" v-model="searchValue" @keyup="search">
+            <input type="text" v-model="searchValue" @keyup="search" placeholder="Rechercher un produit">
         </div>
-        <div class="input__content">
+        <!-- <div class="input__content">
             Résultat de votre recherche = {{searchValue}} <br>
             Résultat de votre recherche precedente = {{oldSearchValue}}
-        </div>
+        </div> -->
         <div class="search__content">
             <ProductsGrid :productsArray="filteredShop"/>
         </div>
-        <ProductsGrid :productsArray="productsFromApi"/>
+        <!-- <ProductsGrid :productsArray="productsFromApi"/> -->
     </div>
 </template>
 
@@ -83,4 +83,15 @@ import ApiProducts from '../mixins/ApiProducts';
     width: auto;
     border-radius: 10px;
 }
+.search__form{
+    margin: 30px;
+    display: flex;
+    justify-content: center;
+    input{
+    height: 40px;
+    width: 600px;
+    font-size: 1.5em;
+    }
+}
+
 </style>

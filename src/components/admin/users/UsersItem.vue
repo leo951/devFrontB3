@@ -9,10 +9,6 @@
           <p> Nom: {{usersObject.firstname}} </p>
           <p> Mail: {{usersObject.email}} </p>
           <p> Telephone: {{usersObject.phone}} </p>
-          <!-- <p> Adresse: {{usersObject.fullAddress}}
-                    {{usersObject.postalCode}}
-                    {{usersObject.city}}
-            </p> -->
         </div>
     </div>
 </template>
@@ -37,4 +33,13 @@
 </script>
 
 <style lang="scss" scoped>
+.user__card{
+    width: 500px;
+    border: 1px solid #CCCCCC;
+    border-radius: 4px;
+    background-color: #FFFFFF;
+    margin: auto;
+    margin-top: 50px;
+    padding: 20px;
+}
 </style>

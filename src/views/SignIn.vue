@@ -3,41 +3,32 @@
         <TitlePage title="Page d'inscription"/>
         <form @submit.prevent="sign">
             <div class="form__group">
-                <label htmlFor="firstName"> Prenom </label>
-                <input class="inpt" type="text" name="firstName"  v-model="firstname" />
+                <input class="inpt" type="text" name="firstName" placeholder="Prénom" v-model="firstname" />
             </div>
              <div class="form__group">
-                <label htmlFor="lastName"> Nom </label>
-                <input class="inpt" type="text" name="lastName"  v-model="lastname" />
+                <input class="inpt" type="text" name="lastName" placeholder="Nom" v-model="lastname" />
             </div>
             <div class="form__group">
-                <label htmlFor="telephone"> Numéro de téléphone </label>
-                <input class="inpt" type="text" name="telephone" v-model="phone"> <br>
+                <input class="inpt" type="text" name="telephone" placeholder="Numéro de téléphone" v-model="phone"> <br>
             </div>
             <div class="form__group">
-                <label htmlFor="email"> Email </label>
-                <input class="inpt" type="text" name="email"  v-model="email" />
+                <input class="inpt" type="text" name="email" placeholder="Email" v-model="email" />
             </div>
             <div class="form__group">
-                <label htmlFor="email"> Adresse (numéro et rue) </label>
-                <input class="inpt" type="text" name="fullAddress"  v-model="adress.fullAddress" />
+                <input class="inpt" type="text" name="fullAddress" placeholder="Adresse complète" v-model="adress.fullAddress" />
             </div>
             <div class="form__group">
-                <label htmlFor="email"> Ville </label>
-                <input class="inpt" type="text" name="city"  v-model="adress.city" />
+                <input class="inpt" type="text" name="city" placeholder="Ville" v-model="adress.city" />
             </div>
             <div class="form__group">
-                <label htmlFor="email"> Code postal </label>
-                <input class="inpt" type="text" name="postalCode"  v-model="adress.postalCode" />
+                <input class="inpt" type="text" name="postalCode" placeholder="Code postale" v-model="adress.postalCode" />
             </div>
             <div class="form__group">
-                <label htmlFor="email"> Pays </label>
-                <input class="inpt" type="text" name="country"  v-model="adress.country" />
+                <input class="inpt" type="text" name="country" placeholder="Pays" v-model="adress.country" />
             </div>
 
             <div class="form__group">
-                <label htmlFor="password"> Mot de passe </label>
-                <input class="inpt" type="password" name="password" v-model="password" />
+                <input class="inpt" type="password" name="password" placeholder="Mot de passe" v-model="password" />
             </div>
             <div class="form__group">
                 <input type="submit" value="s'inscrire" />

@@ -2,48 +2,42 @@
     <div class="profil__form">
         <TitlePage title="Mon compte"/>
         <div  v-if="isLogged">
-            <div v-if="isVisible">
+            <div class="user__content" v-if="isVisible">
             <div class="user__info" v-if="user">
-                <p>Nom :{{user.firstname}}</p>
-                <p>Prénom :{{user.lastname}}</p>
-                <p>Numéro de téléphone :{{user.phone}}</p>
-                <p>Email :{{user.email}}</p>
-                <p> Adresse : {{user.adress.fullAddress}} {{user.adress.postalCode}}</p>
+                <p>{{user.firstname}}</p>
+                <p>{{user.lastname}}</p>
+                <p>{{user.phone}}</p>
+                <p>{{user.email}}</p>
+                <p>{{user.adress.fullAddress}} {{user.adress.postalCode}}</p>
                 <p> {{user.adress.city}} , {{user.adress.country}} </p>
+            </div>
+            <div class="user__content-button">
                 <button @click="logout">Se déconnecter</button>
                 <button @click="modify">modifier le profil</button>
             </div>
             </div>
-            <div v-if="isClicked && user">
+            <div class="modify__form" v-if="isClicked && user">
                 <form @submit.prevent="update">
                     <div class="form__group">
-                        <label htmlFor="firstname"> Prenom </label>
-                        <input class="inpt" type="text" name="firstname"  v-model="firstname" />
+                        <input class="inpt" type="text" name="firstname" placeholder="Prénom"  v-model="firstname" />
                     </div>
                     <div class="form__group">
-                        <label htmlFor="lastname"> Nom </label>
-                        <input class="inpt" type="text" name="lastname"  v-model="lastname" />
+                        <input class="inpt" type="text" name="lastname" placeholder="Nom" v-model="lastname" />
                     </div>
                     <div class="form__group">
-                        <label htmlFor="phone"> Numéro de téléphone </label>
-                        <input class="inpt" type="text" name="phone" v-model="phone"> <br>
+                        <input class="inpt" type="text" name="phone" placeholder="Numéro de téléphone" v-model="phone"> <br>
                     </div>
-                    
                      <div class="form__group">
-                        <label htmlFor="address"> Adresse (numéro et rue) </label>
-                        <input class="inpt" type="text" name="adress"  v-model="fullAddress" />
+                        <input class="inpt" type="text" name="adress" placeholder="Adresse complète" v-model="fullAddress" />
                     </div>
                     <div class="form__group">
-                        <label htmlFor="ville"> Ville </label>
-                        <input class="inpt" type="text" name="ville"  v-model="city" />
+                        <input class="inpt" type="text" name="ville" placeholder="Ville" v-model="city" />
                     </div>
                     <div class="form__group">
-                        <label htmlFor="cp"> Code postal </label>
-                        <input class="inpt" type="text" name="cp"  v-model="postalCode" />
+                        <input class="inpt" type="text" name="cp" placeholder="Code postale" v-model="postalCode" />
                     </div>
                     <div class="form__group">
-                        <label htmlFor="pays"> Pays </label>
-                        <input class="inpt" type="text" name="pays"  v-model="country" />
+                        <input class="inpt" type="text" name="pays" placeholder="Pays" v-model="country" />
                     </div> 
                     
                     
@@ -188,5 +182,47 @@ import TitlePage from "../components/TitlePage";
 </script>
 
 <style lang="scss" scoped>
+    .user__content{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
 
+                width: 500px;
+        border: 1px solid #CCCCCC;
+        border-radius: 4px;
+        background-color: #FFFFFF;
+        margin: auto;
+        margin-top: 50px;
+        padding: 20px;
+        .user__content-button{
+            button{
+                margin: 10px;
+            }
+        }
+        .user__info{
+            display: flex;
+            flex-direction: column;
+            text-align: start;
+        }
+    }
+    .modify__form{
+        width: 500px;
+        border: 1px solid #CCCCCC;
+        border-radius: 4px;
+        background-color: #FFFFFF;
+        margin: auto;
+        margin-top: 50px;
+        padding: 20px;
+    }
+    .inpt{
+    width: 350px;
+    height:30px;
+    text-align: center;
+    color: black;
+    background-color: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    border-radius: .25rem;
+    margin-bottom: 30px;
+}
 </style>

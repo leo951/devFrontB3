@@ -25,5 +25,10 @@ import CategoryItem from './CategoryItem'
 </script>
 
 <style lang="scss" scoped>
-
+    .category__grid{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 </style>

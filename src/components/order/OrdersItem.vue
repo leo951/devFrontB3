@@ -2,11 +2,11 @@
     <div>
         <div class="order__card" v-if="ordersObject">
                 <h2>
-                    Votre numéro de commande est : {{allData._id}}
+                    Votre numéro de commande est : <span>{{allData._id}}</span> 
                 </h2>
                 <h3>Votre commande à été réalisé le : {{allData.date}}</h3>
                 <h4>Votre commande est : {{allData.status}}</h4>
-                <h4>Votre commande comporte : {{allData.products[0].title}}</h4>
+                <h4>Votre commande comporte : <span>{{allData.products[0].title}}</span> </h4>
                 <!-- <div 
                 v-for="product in allData.products"
                 :key="product._id"
@@ -51,5 +51,16 @@
 </script>
 
 <style lang="scss" scoped>
-
+.order__card{
+        width: 500px;
+        border: 1px solid #CCCCCC;
+        border-radius: 4px;
+        background-color: #FFFFFF;
+        margin: auto;
+        margin-top: 50px;
+        padding: 20px;
+        span{
+            color: green;
+        }
+}
 </style>

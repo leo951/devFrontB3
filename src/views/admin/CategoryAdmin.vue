@@ -6,7 +6,7 @@
                 <div class="category__content" v-if="categoryItem">
                     <TitlePage :title="title"/>
 
-                    <p>     {{products}}    </p>
+                    <p>{{products.title}} </p>
 
                     <button @click="modify">Modifier la catégorie</button>
                     <button @click="delet">Supprimer la catégorie</button>
@@ -17,12 +17,10 @@
             <div v-if="isClicked">
                 <form @submit.prevent="update">
                     <div class="form__group">
-                        <label htmlFor="title"> title </label>
-                        <input class="inpt" type="text" name="title"  v-model="title" />
+                        <input class="inpt" type="text" name="title" placeholder="Titre de la categorie" v-model="title" />
                     </div>
                     <div class="form__group">
-                        <label htmlFor="products"> products </label>
-                        <input class="inpt" type="text" name="products"  v-model="products" />
+                        <input class="inpt" type="text" name="products" placeholder="Produits" v-model="products" />
                     </div>
                    
     

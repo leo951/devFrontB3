@@ -18,9 +18,17 @@ import ProductsItem from './ProductsItem'
         props: {
             productsArray: Array
         },
+        created() {
+            console.log(`Je suis la longueur de productsArrray = ${this.productsArray.length}`)
+        },
     }
 </script>
 
 <style lang="scss" scoped>
-
+.products__grid{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 </style>

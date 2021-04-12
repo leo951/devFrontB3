@@ -1,10 +1,10 @@
 <template>
     <div class="dash--admin">
+
         <TitlePage title="Bienvenue sur le dashboard Admin"/>
-
-
+        
          <div class="categories">
-            <div class="categories__content" v-if="categoryItem">
+            <div class="category__container-center" v-if="categoryItem">
                 <CategoryGrid :CategoryArray="categoryFromApi"/> 
             </div>
             <router-link :to="{name: 'CreateCategory'}">
@@ -50,5 +50,9 @@ import TitlePage from '../../components/TitlePage';
 </script>
 
 <style lang="scss" scoped>
-    
+    .category__container-center{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+  }
 </style>

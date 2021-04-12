@@ -28,6 +28,9 @@ import DashboardUsers from '../views/DashboardAdmin/DashboardUsers.vue'
 import DashboardProducts from '../views/DashboardAdmin/DashboardProducts.vue'
 import LoginAdmin from '../views/admin/LoginAdmin.vue'
 
+import DashboardOrders from '../views/DashboardAdmin/DashboardOrders.vue'
+import OrdersModify from '../views/admin/OrdersModify.vue'
+
 
 
 
@@ -167,6 +170,16 @@ const routes = [
     path: '/dashboardProducts',
     name: 'DashboardProducts',
     component: DashboardProducts
+  },
+  {
+    path: '/dashboardOrders',
+    name: 'DashboardOrders',
+    component: DashboardOrders
+  },
+  {
+    path: '/ordersModify',
+    name: 'OrdersModify',
+    component: OrdersModify
   },
 ]
 

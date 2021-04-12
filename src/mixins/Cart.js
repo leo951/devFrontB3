@@ -80,8 +80,7 @@ export default{
             return total;
         },
         getCartCount(card){
-            let total = card.reduce(
-                (total, item) => total + item.qty, 0);
+            let total = card.reduce((total, item) => total + item.qty, 0);
             return total;
         }
 
