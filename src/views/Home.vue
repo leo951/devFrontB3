@@ -63,6 +63,10 @@ export default {
   }
   .category__container-bottom{
     font-size: 2em;
+    // background-image: url("@/../../assets/img/hero_home.jpg");
+    // background-repeat: no-repeat;
+    // background-size: 100% 100%;
+    // height: 800px;
   }
 }
     span{
