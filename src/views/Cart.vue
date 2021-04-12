@@ -14,13 +14,13 @@
                 <tr v-for="item in cartArray" :key="item.id">
                     <td>{{item.title}}</td>
                     <td>{{item.qty}}</td>
-                    <td>{{item.price}}</td>
+                    <td>{{item.price}} €</td>
                     <td class="shop__table-button">
                         <button @click="DeleteItemCart(item)">-</button>
                         <button @click="AddItemCart(item)">+</button>
                     </td>
                     <td>
-                        {{item.qty *item.price}}$
+                        {{item.qty *item.price}} €
                     </td>
                     <td>
                         <button @click="removeProductCart(item)">Supprimer le produit</button>

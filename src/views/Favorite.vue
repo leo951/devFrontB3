@@ -12,7 +12,7 @@
                 <tbody>
                     <tr v-for="item in favoriArray" :key="item.id">
                         <td>{{item.title}}</td>
-                        <td>{{item.price}}</td>
+                        <td>{{item.price}} €</td>
                         <td>
                             <button @click="removeFavori(item)">Supprimer le produit</button>
                         </td>

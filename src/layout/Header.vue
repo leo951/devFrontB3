@@ -9,11 +9,11 @@
             <router-link v-if="this.isUser" to="/favorite">Favoris</router-link>
             <router-link v-if="this.isUser" to="/orders">Commandes</router-link>
             <!-- <router-link to="/about">About</router-link> | -->
-            <router-link v-if="this.isUser" to="/shop">Nos produits</router-link>
+            <router-link v-if="this.isUser" to="/shop">Produits</router-link>
             <!-- <router-link to="/product">Product</router-link> | -->
             <router-link to="/account">Mon compte</router-link>
             <router-link v-if="this.isUser" to="/signIn">Inscription</router-link>
-            <router-link v-if="isConnect" to="/login">Login</router-link>
+            <router-link v-if="isConnect" to="/login">Connexion</router-link>
             <router-link v-if="this.isAdmin" to="/dashboard">Dashboard</router-link>
         </div>
     </header>
@@ -76,6 +76,7 @@ import VueJwtDecode from "vue-jwt-decode";
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    background-color: whitesmoke;
 
     .header__logo img{
         height: 150px;
